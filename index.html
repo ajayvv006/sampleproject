@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <base target="_self">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI&ML Batch - Hindusthan College of Engineering & Technology</title>
+    <meta name="description" content="Student Management System for AI&ML Batch at Hindusthan College of Engineering & Technology">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#1e40af",
+                        secondary: "#3b82f6",
+                        accent: "#06b6d4",
+                        dark: "#0f172a"
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'glow': 'glow 2s ease-in-out infinite alternate',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-20px)' }
+                        },
+                        glow: {
+                            '0%': { boxShadow: '0 0 20px #06b6d4' },
+                            '100%': { boxShadow: '0 0 30px #3b82f6, 0 0 40px #1e40af' }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="min-h-screen bg-gradient-to-br from-dark via-blue-900 to-purple-900 text-white">
+    <!-- Header -->
+    <header class="bg-dark/80 backdrop-blur-lg sticky top-0 z-50 border-b border-blue-500/20">
+        <nav class="container mx-auto px-4 py-4">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center space-x-2">
+                    <div class="w-10 h-10 bg-gradient-to-r from-accent to-secondary rounded-lg flex items-center justify-center">
+                        <i class="fas fa-brain text-white text-lg"></i>
+                    </div>
+                    <div>
+                        <h1 class="text-xl font-bold bg-gradient-to-r from-white to-accent bg-clip-text text-transparent">AI&ML Batch</h1>
+                        <p class="text-xs text-blue-300">Hindusthan College</p>
+                    </div>
+                </div>
+                
+                <div class="hidden md:flex space-x-8">
+                    <a href="#" class="hover:text-accent transition-colors duration-300">Home</a>
+                    <a href="#" class="hover:text-accent transition-colors duration-300">Students</a>
+                    <a href="#" class="hover:text-accent transition-colors duration-300">Events</a>
+                    <a href="#" class="hover:text-accent transition-colors duration-300">News</a>
+                    <a href="#" class="hover:text-accent transition-colors duration-300">Contact</a>
+                </div>
+
+                <div class="flex space-x-4">
+                    <button onclick="showLoginModal()" class="bg-secondary hover:bg-blue-600 px-4 py-2 rounded-lg transition-all duration-300 transform hover:scale-105">
+                        Student Login
+                    </button>
+                    <button onclick="showAdminLogin()" class="bg-accent hover:bg-cyan-600 px-4 py-2 rounded-lg transition-all duration-300 transform hover:scale-105">
+                        Admin Portal
+                    </button>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Banner -->
+    <section class="relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-r from-blue-600/20 to-purple-600/20"></div>
+        <div class="container mx-auto px-4 py-20 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div class="space-y-6">
+                    <div class="animate-float">
+                        <h1 class="text-5xl lg:text-6xl font-bold leading-tight">
+                            Future of <span class="bg-gradient-to-r from-accent to-secondary bg-clip-text text-transparent">AI & ML</span>
+                        </h1>
+                        <p class="text-xl text-blue-200 mt-4">
+                            Hindusthan College of Engineering & Technology
+                        </p>
+                    </div>
+                    <p class="text-lg text-gray-300 leading-relaxed">
+                        Welcome to the premier AI & Machine Learning batch. We're shaping the next generation of AI innovators with cutting-edge curriculum and industry-focused projects.
+                    </p>
+                    <div class="flex space-x-4">
+                        <button onclick="showLoginModal()" class="bg-secondary hover:bg-blue-600 px-8 py-3 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 animate-glow">
+                            Join Our Community
+                        </button>
+                        <button class="border border-accent text-accent hover:bg-accent hover:text-white px-8 py-3 rounded-lg font-semibold transition-all duration-300">
+                            Learn More
+                        </button>
+                    </div>
+                </div>
+                <div class="relative">
+                    <div class="absolute -inset-4 bg-gradient-to-r from-accent to-secondary rounded-2xl blur-xl opacity-30"></div>
+                    <img 
+                        src="https://picsum.photos/600/400?random=1" 
+                        alt="AI & ML students collaborating" 
+                        class="relative rounded-xl shadow-2xl w-full"
+                        loading="lazy"
+                    />
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- News Section -->
+    <section class="py-16">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold mb-4">Batch <span class="text-accent">News</span></h2>
+                <p class="text-xl text-gray-300">Latest updates from our AI & ML community</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-white/10 backdrop-blur-lg rounded-xl p-6 border border-blue-500/20 hover:border-accent transition-all duration-300">
+                    <div class="text-accent text-sm font-semibold mb-2">NEW PROJECT</div>
+                    <h3 class="text-xl font-bold mb-3">Neural Network Workshop</h3>
+                    <p class="text-gray-300 mb-4">Hands-on session on building neural networks from scratch. Perfect for beginners and advanced learners alike.</p>
+                    <div class="text-blue-300 text-sm">Posted: Dec 15, 2024</div>
+                </div>
+                
+                <div class="bg-white/10 backdrop-blur-lg rounded-xl p-6 border border-blue-500/20 hover:border-accent transition-all duration-300">
+                    <div class="text-accent text-sm font-semibold mb-2">ACHIEVEMENT</div>
+                    <h3 class="text-xl font-bold mb-3">Hackathon Winners</h3>
+                    <p class="text-gray-300 mb-4">Our students secured first place in the National AI Hackathon 2024. Congratulations to the winning team!</p>
+                    <div class="text-blue-300 text-sm">Posted: Dec 12, 2024</div>
+                </div>
+                
+                <div class="bg-white/10 backdrop-blur-lg rounded-xl p-6 border border-blue-500/20 hover:border-accent transition-all duration-300">
+                    <div class="text-accent text-sm font-semibold mb-2">INDUSTRY TIE-UP</div>
+                    <h3 class="text-xl font-bold mb-3">Google AI Partnership</h3>
+                    <p class="text-gray-300 mb-4">New collaboration with Google AI for research projects and internship opportunities for our students.</p>
+                    <div class="text-blue-300 text-sm">Posted: Dec 10, 2024</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Upcoming Events -->
+    <section class="py-16 bg-white/5">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold mb-4">Upcoming <span class="text-accent">Events</span></h2>
+                <p class="text-xl text-gray-300">Mark your calendars for these exciting events</p>
+            </div>
+            
+            <div class="max-w-4xl mx-auto">
+                <div class="bg-white/10 backdrop-blur-lg rounded-xl p-6 mb-6 border border-accent/30">
+                    <div class="flex flex-col md:flex-row md:items-center md:justify-between">
+                        <div>
+                            <h3 class="text-2xl font-bold text-accent">AI Conference 2024</h3>
+                            <p class="text-gray-300 mt-2">Annual conference featuring industry leaders and research presentations</p>
+                            <div class="flex items-center space-x-4 mt-3 text-sm text-blue-300">
+                                <span><i class="fas fa-calendar mr-2"></i>December 20, 2024</span>
+                                <span><i class="fas fa-clock mr-2"></i>9:00 AM - 5:00 PM</span>
+                                <span><i class="fas fa-map-marker-alt mr-2"></i>Main Auditorium</span>
+                            </div>
+                        </div>
+                        <button class="mt-4 md:mt-0 bg-accent hover:bg-cyan-600 px-6 py-2 rounded-lg transition-all duration-300">
+                            Register Now
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="bg-white/10 backdrop-blur-lg rounded-xl p-6 mb-6 border border-blue-500/20">
+                    <div class="flex flex-col md:flex-row md:items-center md:justify-between">
+                        <div>
+                            <h3 class="text-2xl font-bold">Machine Learning Workshop</h3>
+                            <p class="text-gray-300 mt-2">Practical session on advanced ML algorithms and implementations</p>
+                            <div class="flex items-center space-x-4 mt-3 text-sm text-blue-300">
+                                <span><i class="fas fa-calendar mr-2"></i>December 22, 2024</span>
+                                <span><i class="fas fa-clock mr-2"></i>2:00 PM - 6:00 PM</span>
+                                <span><i class="fas fa-map-marker-alt mr-2"></i>Lab 301</span>
+                            </div>
+                        </div>
+                        <button class="mt-4 md:mt-0 bg-secondary hover:bg-blue-600 px-6 py-2 rounded-lg transition-all duration-300">
+                            Register Now
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="bg-white/10 backdrop-blur-lg rounded-xl p-6 border border-blue-500/20">
+                    <div class="flex flex-col md:flex-row md:items-center md:justify-between">
+                        <div>
+                            <h3 class="text-2xl font-bold">Project Submission Deadline</h3>
+                            <p class="text-gray-300 mt-2">Final date for submitting semester projects</p>
+                            <div class="flex items-center space-x-4 mt-3 text-sm text-blue-300">
+                                <span><i class="fas fa-calendar mr-2"></i>December 30, 2024</span>
+                                <span><i class="fas fa-clock mr-2"></i>11:59 PM</span>
+                                <span><i class="fas fa-map-marker-alt mr-2"></i>Online Portal</span>
+                            </div>
+                        </div>
+                        <button class="mt-4 md:mt-0 bg-secondary hover:bg-blue-600 px-6 py-2 rounded-lg transition-all duration-300">
+                            Submit Project
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark border-t border-blue-500/20 py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center space-x-2 mb-4">
+                        <div class="w-8 h-8 bg-gradient-to-r from-accent to-secondary rounded-lg flex items-center justify-center">
+                            <i class="fas fa-brain text-white"></i>
+                        </div>
+                        <span class="font-bold text-lg">AI&ML Batch</span>
+                    </div>
+                    <p class="text-gray-400 text-sm">
+                        Hindusthan College of Engineering & Technology<br>
+                        Shaping the future of Artificial Intelligence
+                    </p>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold mb-4 text-accent">Quick Links</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="#" class="hover:text-white transition-colors">Student Portal</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Academic Calendar</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Resources</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Faculty</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold mb-4 text-accent">Contact Info</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li class="flex items-center space-x-2">
+                            <i class="fas fa-envelope text-accent"></i>
+                            <span>aiml@hindusthan.edu</span>
+                        </li>
+                        <li class="flex items-center space-x-2">
+                            <i class="fas fa-phone text-accent"></i>
+                            <span>+91 9876543210</span>
+                        </li>
+                        <li class="flex items-center space-x-2">
+                            <i class="fas fa-map-marker-alt text-accent"></i>
+                            <span>Coimbatore, Tamil Nadu</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold mb-4 text-accent">Follow Us</h4>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center hover:bg-blue-700 transition-colors">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-accent rounded-full flex items-center justify-center hover:bg-cyan-700 transition-colors">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-pink-600 rounded-full flex items-center justify-center hover:bg-pink-700 transition-colors">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-blue-400 rounded-full flex items-center justify-center hover:bg-blue-500 transition-colors">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-sm text-gray-400">
+                <p>&copy; 2024 Hindusthan College of Engineering & Technology - AI&ML Batch. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Student Login Modal -->
+    <div id="loginModal" class="fixed inset-0 bg-black/50 backdrop-blur-sm hidden items-center justify-center z-50 p-4">
+        <div class="bg-gradient-to-br from-dark to-blue-900 rounded-2xl p-8 max-w-md w-full border border-accent/30">
+            <div class="text-center mb-6">
+                <h3 class="text-2xl font-bold text-accent mb-2">Student Login</h3>
+                <p class="text-gray-300">Access your student portal</p>
+            </div>
+            
+            <form id="studentLoginForm" class="space-y-4">
+                <div>
+                    <label class="block text-sm font-medium text-gray-300 mb-2">Email ID</label>
+                    <input type="email" required class="w-full bg-white/10 border border-blue-500/30 rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:border-accent transition-colors" placeholder="student@hindusthan.edu">
+                </div>
+                
+                <div>
+                    <label class="block text-sm font-medium text-gray-300 mb-2">Password</label>
+                    <input type="password" required class="w-full bg-white/10 border border-blue-500/30 rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:border-accent transition-colors" placeholder="Enter your password">
+                </div>
+                
+                <button type="submit" class="w-full bg-accent hover:bg-cyan-600 text-white font-semibold py-3 rounded-lg transition-all duration-300 transform hover:scale-105">
+                    Sign In
+                </button>
+            </form>
+            
+            <div class="text-center mt-4">
+                <button onclick="hideLoginModal()" class="text-gray-400 hover:text-white transition-colors">
+                    Cancel
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Admin Login Modal -->
+    <div id="adminModal" class="fixed inset-0 bg-black/50 backdrop-blur-sm hidden items-center justify-center z-50 p-4">
+        <div class="bg-gradient-to-br from-dark to-purple-900 rounded-2xl p-8 max-w-md w-full border border-purple-500/30">
+            <div class="text-center mb-6">
+                <h3 class="text-2xl font-bold text-purple-400 mb-2">Admin Portal</h3>
+                <p class="text-gray-300">Administrator access only</p>
+            </div>
+            
+            <form id="adminLoginForm" class="space-y-4">
+                <div>
+                    <label class="block text-sm font-medium text-gray-300 mb-2">Admin ID</label>
+                    <input type="text" required class="w-full bg-white/10 border border-purple-500/30 rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:border-purple-400 transition-colors" placeholder="admin@hindusthan.edu">
+                </div>
+                
+                <div>
+                    <label class="block text-sm font-medium text-gray-300 mb-2">Password</label>
+                    <input type="password" required class="w-full bg-white/10 border border-purple-500/30 rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:border-purple-400 transition-colors" placeholder="Admin password">
+                </div>
+                
+                <button type="submit" class="w-full bg-purple-600 hover:bg-purple-700 text-white font-semibold py-3 rounded-lg transition-all duration-300 transform hover:scale-105">
+                    Access Admin Panel
+                </button>
+            </form>
+            
+            <div class="text-center mt-4">
+                <button onclick="hideAdminModal()" class="text-gray-400 hover:text-white transition-colors">
+                    Cancel
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Modal Functions
+        function showLoginModal() {
+            document.getElementById('loginModal').classList.remove('hidden');
+            document.getElementById('loginModal').classList.add('flex');
+        }
+
+        function hideLoginModal() {
+            document.getElementById('loginModal').classList.add('hidden');
+            document.getElementById('loginModal').classList.remove('flex');
+        }
+
+        function showAdminLogin() {
+            document.getElementById('adminModal').classList.remove('hidden');
+            document.getElementById('adminModal').classList.add('flex');
+        }
+
+        function hideAdminModal() {
+            document.getElementById('adminModal').classList.add('hidden');
+            document.getElementById('adminModal').classList.remove('flex');
+        }
+
+        // Form Handling
+        document.getElementById('studentLoginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Student login functionality would be implemented here');
+            hideLoginModal();
+        });
+
+        document.getElementById('adminLoginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Admin login functionality would be implemented here');
+            hideAdminModal();
+        });
+
+        // Close modals on outside click
+        document.getElementById('loginModal').addEventListener('click', function(e) {
+            if (e.target === this) hideLoginModal();
+        });
+
+        document.getElementById('adminModal').addEventListener('click', function(e) {
+            if (e.target === this) hideAdminModal();
+        });
+
+        // Sample data for dynamic content
+        const batchStats = {
+            "totalStudents": 85,
+            "activeProjects": 12,
+            "upcomingEvents": 5,
+            "facultyMembers": 8
+        };
+
+        // Initialize any dynamic content
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('AI&ML Student Management System Loaded');
+            console.log('Batch Statistics:', batchStats);
+        });
+    </script>
+</body>
+</html>
